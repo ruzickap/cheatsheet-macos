@@ -1,0 +1,151 @@
+\documentclass[a4paper]{article}
+
+\usepackage[table]{xcolor}
+\usepackage{multicol}
+\usepackage{booktabs}
+
+\usepackage[mackeys=text]{menukeys}
+
+\usepackage[
+             citecolor=red,backref,bookmarks,
+             pdfpagemode=None,
+             pdftitle={MacOS Cheatsheet},
+             pdfauthor={Petr Ruzicka},
+             pdfsubject={MacOS Cheatsheet},
+             pdfkeywords={MacOS Cheatsheet, Refcard, Cheat Sheet, MacOS, mc, },
+             pdfview=FitB
+]{hyperref}
+
+\title{MacOS Cheatsheet}
+
+\pagestyle{empty}
+
+\addtolength{\voffset}{-3.5cm}
+\addtolength{\textheight}{7cm}
+\addtolength{\hoffset}{-3.7cm}
+\addtolength{\textwidth}{7.4cm}
+
+% -----------------------------------------------------------------------
+
+\begin{document}
+\begin{center}
+
+	{\huge MacOS Cheatsheet}
+
+	\vspace{5mm}
+	\small
+
+	\begin{multicols}{2}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			MacOS                                                                                         & Description                        \\ \midrule
+			\keys{\Alt + \tab + (\shift)}                                                                 & Switch next (previous) app         \\ \midrule
+			\keys{\cmd + C } / \keys{V}                                                                   & Copy / Paste item                  \\ \midrule
+			\keys{\cmd + Z} (+ \keys{\shift})                                                             & Undo / Redo action                 \\ \midrule
+			\keys{\cmd + A}                                                                               & Select all items                   \\ \midrule
+			\keys{\cmd + F} / \keys{G}                                                                    & Find / Find again items            \\ \midrule
+			\keys{\cmd + O} / \keys{S}                                                                    & Open / Save file                   \\ \midrule
+			\keys{\cmd + P}                                                                               & Print                              \\ \midrule
+			\keys{\cmd + T} (+ \keys{\shift})                                                             & Open new / previously closed tab   \\ \midrule
+			\keys{\cmd + W}                                                                               & Close window/tab                   \\ \midrule
+			\keys{\cmd + \SPACE}                                                                          & Show/hide the Spotlight search bar \\ \midrule
+			\keys{\cmd + ,}                                                                               & Preferences                        \\ \midrule
+			\keys{\cmd + Q}                                                                               & Quit                               \\ \midrule
+			\keys{\ctrl + \cmd + F}                                                                       & Full screen                        \\ \midrule
+			\keys{\cmd + F}                                                                               & Find                               \\ \midrule
+			\keys{\cmd + G + (\shift)}                                                                    & Find next (previous)               \\ \midrule
+			\keys{\cmd + N}                                                                               & New Window                         \\ \midrule
+			\keys{\cmd + S + (\shift)}                                                                    & Save (as)                          \\ \midrule
+			\keys{\cmd + Z + (\shift)}                                                                    & Undo (Redo)                        \\ \midrule
+			\keys{\cmd + \shift + 5}                                                                      & Capture Screen                     \\ \midrule
+			\keys{\cmd + \Alt + \esc}                                                                     & Kill app                           \\ \midrule
+			\keys{\cmd + \ctrl + Q}                                                                       & Lock screen                        \\ \midrule
+			\keys{\ctrl + \arrowkeyleft } / \keys{\arrowkeyright}                                         & Move Space L / R                   \\ \midrule
+			\keys{fn + \arrowkeyup} / \keys{\arrowkeydown} / \keys{\arrowkeyleft} / \keys{\arrowkeyright} & PgUp / PgDown / Home / End         \\
+			\bottomrule
+		\end{tabular}
+
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			Rectangle                                                                                               & Description               \\ \midrule
+			\keys{\ctrl + \Alt + \arrowkeyup} / \keys{\arrowkeydown} / \keys{\arrowkeyleft} / \keys{\arrowkeyright} & T / D / L / R Half        \\ \midrule
+			\keys{\ctrl + \Alt + + U} / \keys{I} ; \keys{J} / \keys{K}                                              & Top L / R ; Bottom L / R  \\ \midrule
+			\keys{\ctrl + \Alt + \enter} / \keys{\backdel}                                                          & Maximize / Restore        \\ \midrule
+			\keys{\ctrl + \Alt + \shift + \arrowkeyup}                                                              & Maximize Height           \\ \midrule
+			\keys{\ctrl + \Alt + -} / \keys{=} / \keys{C}                                                           & Smaller / Larger / Center \\
+			\bottomrule
+		\end{tabular}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			Trackpad                        & Description          \\ \midrule
+			Two fingers tap                 & Click left button    \\ \midrule
+			Swipe three fingers L / R       & Switch spaces        \\ \midrule
+			Swipe two fingers U / D / L / R & Scroll U / D / L / R \\
+			\bottomrule
+		\end{tabular}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			iTerm2                                                       & Description                     \\ \midrule
+			\keys{\cmd + \arrowkeyleft} / \keys{\arrowkeyright}          & Next / Previous Tab             \\ \midrule
+			\keys{\cmd + \shift + \arrowkeyleft} / \keys{\arrowkeyright} & Move Tab L / R                  \\ \midrule
+			\keys{\cmd + \texttt{-}} / \keys{\texttt{+}}                 & Smaller / Bigger Text           \\ \midrule
+			\keys{\cmd + \return}                                        & Toggle Full Screen              \\ \midrule
+			\keys{\cmd + K}                                              & Clear Buffer                    \\ \midrule
+			\keys{\cmd + (\shift) + D}                                   & Split (Horizontally) Vertically \\ \midrule
+			\keys{\cmd + URL}                                            & Open web browser                \\
+			\bottomrule
+		\end{tabular}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			Chrome                                                     & Description            \\ \midrule
+			\keys{\Alt + \cmd + \arrowkeyleft} / \keys{\arrowkeyright} & Next / Previous Tab    \\
+			\keys{\cmd + L}                                            & Select URL in Location \\ \midrule
+			\keys{\cmd + T + (\shift)}                                 & Open New (Old) Tab     \\
+			\bottomrule
+		\end{tabular}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			MC keys                  & Description                         \\ \midrule
+			\keys{\ctrl + X + C}     & chmod                               \\ \midrule
+			\keys{\Alt + \shift + ?} & find                                \\ \midrule
+			\keys{\Alt + \shift + A} & put directory to cli                \\ \midrule
+			\keys{\Alt + T}          & change panel listing mode           \\ \midrule
+			\keys{\Alt + .}          & hide/show hidden files              \\ \midrule
+			\keys{\ctrl + \SPACE}    & show directory size                 \\ \midrule
+			\keys{\Alt + S}          & quick search                        \\ \midrule
+			\keys{\ctrl + X + I}     & info                                \\ \midrule
+			\keys{\ctrl + O}         & switch from/to terminal             \\ \midrule
+			\keys{\Alt + \enter}     & fill name                           \\ \midrule
+			\keys{\Alt + A}          & fill absolute path                  \\ \midrule
+			\keys{\Alt + I}          & show same directory in second panel \\ \midrule
+			\keys{\Alt + H}          & command history                     \\ \midrule
+			\keys{\Alt + P}          & previous command                    \\
+			\bottomrule
+		\end{tabular}
+
+		\begin{tabular}{*{2}{l}}
+			\toprule
+			\rowcolor[gray]{.8}
+			Visual Studio Code            & Description  \\ \midrule
+			\keys{\ctrl + \SPACE}         & Completion   \\ \midrule
+			\keys{\ctrl + \textbackslash} & Split window \\
+			\bottomrule
+		\end{tabular}
+
+	\end{multicols}
+
+\end{center}
+
+\end{document}
