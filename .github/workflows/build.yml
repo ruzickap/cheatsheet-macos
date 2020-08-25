@@ -1,0 +1,21 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Update repositories
+        run: sudo apt update
+
+      - name: Install necessary packages
+        run: sudo apt install -y make poppler-utils texlive texlive-latex-extra
+
+      - name: Create the documents
+        run: ./run.sh
