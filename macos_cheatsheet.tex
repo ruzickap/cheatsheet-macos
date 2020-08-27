@@ -41,24 +41,24 @@
 			\toprule
 			\rowcolor[gray]{.8}
 			MacOS                                                                                         & Description                        \\ \midrule
-			\keys{\Alt + \tab + (\shift)}                                                                 & Switch next (previous) app         \\ \midrule
-			\keys{\cmd + C } / \keys{V}                                                                   & Copy / Paste item                  \\ \midrule
-			\keys{\cmd + Z} (+ \keys{\shift})                                                             & Undo / Redo action                 \\ \midrule
+			\keys{\Alt + (\shift) + \tab}                                                                 & Switch next (previous) app         \\ \midrule
+			\keys{\cmd + C} / \keys{V}                                                                    & Copy / Paste item                  \\ \midrule
+			\keys{\cmd + (\shift) + Z}                                                                    & Undo / (Redo) action               \\ \midrule
 			\keys{\cmd + A}                                                                               & Select all items                   \\ \midrule
 			\keys{\cmd + F} / \keys{G}                                                                    & Find / Find again items            \\ \midrule
 			\keys{\cmd + O} / \keys{S}                                                                    & Open / Save file                   \\ \midrule
 			\keys{\cmd + P}                                                                               & Print                              \\ \midrule
-			\keys{\cmd + T} (+ \keys{\shift})                                                             & Open new / previously closed tab   \\ \midrule
+			\keys{\cmd + (\shift) + T}                                                                    & Open new (previously closed) tab   \\ \midrule
 			\keys{\cmd + W}                                                                               & Close window/tab                   \\ \midrule
-			\keys{\cmd + \SPACE}                                                                          & Show/hide the Spotlight search bar \\ \midrule
+			\keys{\cmd + \SPACE}                                                                          & Show/hide the Spotlight            \\ \midrule
 			\keys{\cmd + ,}                                                                               & Preferences                        \\ \midrule
 			\keys{\cmd + Q}                                                                               & Quit                               \\ \midrule
 			\keys{\ctrl + \cmd + F}                                                                       & Full screen                        \\ \midrule
 			\keys{\cmd + F}                                                                               & Find                               \\ \midrule
-			\keys{\cmd + G + (\shift)}                                                                    & Find next (previous)               \\ \midrule
+			\keys{\cmd + (\shift) + G}                                                                    & Find next (previous)               \\ \midrule
 			\keys{\cmd + N}                                                                               & New Window                         \\ \midrule
-			\keys{\cmd + S + (\shift)}                                                                    & Save (as)                          \\ \midrule
-			\keys{\cmd + Z + (\shift)}                                                                    & Undo (Redo)                        \\ \midrule
+			\keys{\cmd + (\shift) + S}                                                                    & Save (as)                          \\ \midrule
+			\keys{\cmd + (\shift) + Z}                                                                    & Undo (Redo)                        \\ \midrule
 			\keys{\cmd + \shift + 5}                                                                      & Capture Screen                     \\ \midrule
 			\keys{\cmd + \Alt + \esc}                                                                     & Kill app                           \\ \midrule
 			\keys{\cmd + \ctrl + Q}                                                                       & Lock screen                        \\ \midrule
@@ -119,17 +119,19 @@
 			\rowcolor[gray]{.8}
 			MC keys                  & Description                         \\ \midrule
 			\keys{\ctrl + X + C}     & chmod                               \\ \midrule
+			\keys{\ctrl + X + O}     & chown                               \\ \midrule
 			\keys{\Alt + \shift + ?} & find                                \\ \midrule
 			\keys{\Alt + \shift + A} & put directory to cli                \\ \midrule
 			\keys{\Alt + T}          & change panel listing mode           \\ \midrule
 			\keys{\Alt + .}          & hide/show hidden files              \\ \midrule
-			\keys{\ctrl + \SPACE}    & show directory size                 \\ \midrule
+			\keys{\ctrl + \SPACE}    & directory size                      \\ \midrule
 			\keys{\Alt + S}          & quick search                        \\ \midrule
 			\keys{\ctrl + X + I}     & info                                \\ \midrule
+			\keys{\ctrl + X + Q}     & quick view                          \\ \midrule
 			\keys{\ctrl + O}         & switch from/to terminal             \\ \midrule
 			\keys{\Alt + \enter}     & fill name                           \\ \midrule
 			\keys{\Alt + A}          & fill absolute path                  \\ \midrule
-			\keys{\Alt + I}          & show same directory in second panel \\ \midrule
+			\keys{\Alt + I}          & same directory in second panel      \\ \midrule
 			\keys{\Alt + H}          & command history                     \\ \midrule
 			\keys{\Alt + P}          & previous command                    \\
 			\bottomrule
@@ -138,9 +140,23 @@
 		\begin{tabular}{*{2}{l}}
 			\toprule
 			\rowcolor[gray]{.8}
-			Visual Studio Code            & Description  \\ \midrule
-			\keys{\ctrl + \SPACE}         & Completion   \\ \midrule
-			\keys{\ctrl + \textbackslash} & Split window \\
+			Visual Studio Code                                      & Description              \\ \midrule
+			\keys{\cmd + \shift + P}                                & Command Palette          \\ \midrule
+			\keys{\cmd + P}                                         & Quick Open               \\ \midrule
+			\keys{\Alt + \arrowkeyup} / \keys{\arrowkeydown}        & Move line U / D          \\ \midrule
+			\keys{\cmd + \shift + K}                                & Delete line              \\ \midrule
+			\keys{\cmd + (\shift) + \enter}                         & Insert new line (above)  \\ \midrule
+			\keys{\cmd + \shift + \textbackslash}                   & Jump to matching bracket \\ \midrule
+			\keys{\cmd + ]} / \keys{[}                              & Indent / outdent line    \\ \midrule
+			\keys{\cmd + /}                                         & Toggle line comment      \\ \midrule
+			\keys{\Alt + \cmd + \arrowkeyup} / \keys{\arrowkeydown} & Insert cursor U / D      \\ \midrule
+			\keys{\ctrl + \SPACE}                                   & Completion               \\ \midrule
+			\keys{\ctrl + G}                                        & Go to line               \\ \midrule
+			\keys{\ctrl + \textbackslash}                           & Split window             \\ \midrule
+			\keys{\ctrl + \tab}                                     & Switch tab               \\ \midrule
+			\keys{\cmd + \shift + E}                                & Show Explorer            \\ \midrule
+			\keys{\cmd + \shift + F}                                & Show Search              \\ \midrule
+			\keys{\cmd + \shift + V}                                & Open Markdown preview    \\
 			\bottomrule
 		\end{tabular}
 
