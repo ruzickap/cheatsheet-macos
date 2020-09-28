@@ -1,5 +1,10 @@
 # Changelog
 
+## [v0.1.1](https://github.com/ruzickap/cheatsheet-macos/compare/v0.1.0...v0.1.1) (2020-09-28)
+
+- Fix release process [`#22`](https://github.com/ruzickap/cheatsheet-macos/pull/22)
+- CHANGELOG file update [`#21`](https://github.com/ruzickap/cheatsheet-macos/pull/21)
+
 ## v0.1.0 (2020-09-28)
 
 - Use upper case for shortcut keys [`#20`](https://github.com/ruzickap/cheatsheet-macos/pull/20)
