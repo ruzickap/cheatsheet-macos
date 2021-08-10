@@ -20,48 +20,17 @@ jobs:
         run: sudo apt install -y make poppler-utils texlive texlive-latex-extra
 
       - name: Create the documents
-        run: ./run.sh
+        id: run
+        run: |
+          ./run.sh
+          LATEX_FILENAME=$(ls ./*.tex)
+          echo "::set-output name=FILE::${LATEX_FILENAME%.*}"
 
-      - name: Upload Release Asset - pdf
-        id: upload-release-asset-pdf
+      - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: macos_cheatsheet.pdf
-          asset_name: macos_cheatsheet.pdf
-          asset_content_type: application/pdf
-
-      - name: Upload Release Asset - svg
-        id: upload-release-asset-svg
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: macos_cheatsheet.svg
-          asset_name: macos_cheatsheet.svg
-          asset_content_type: image/svg+xml
-
-      - name: Upload Release Asset - png
-        id: upload-release-asset-png
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: macos_cheatsheet.png
-          asset_name: macos_cheatsheet.png
-          asset_content_type: image/png
-
-      - name: Upload Release Asset - jpg
-        id: upload-release-asset-jpg
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: macos_cheatsheet.jpg
-          asset_name: macos_cheatsheet.jpg
-          asset_content_type: image/jpg
+          files: |
+            ${{ steps.run.outputs.FILE }}.jpg
+            ${{ steps.run.outputs.FILE }}.pdf
+            ${{ steps.run.outputs.FILE }}.png
+            ${{ steps.run.outputs.FILE }}.svg
