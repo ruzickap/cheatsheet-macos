@@ -24,7 +24,7 @@ jobs:
         run: |
           ./run.sh
           LATEX_FILENAME=$(ls ./*.tex)
-          echo "::set-output name=FILE::${LATEX_FILENAME%.*}"
+          echo "FILE=${LATEX_FILENAME%.*}" | tee -a "${GITHUB_OUTPUT}"
 
       - name: Upload Release Asset
         uses: softprops/action-gh-release@v1
