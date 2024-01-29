@@ -1,0 +1,34 @@
+---
+name: latex-build
+
+on:
+  workflow_dispatch:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - "**.tex"
+      - .github/workflows/latex-build.yml
+
+permissions: read-all
+
+jobs:
+  latex-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Run script to build document
+        id: build
+        run: |
+          ./run.sh
+          FILE_NAME=$(find ./*.tex | sed 's@^\./\(.*\)\.tex@\1@')
+          echo "file_name=${FILE_NAME}" >> "${GITHUB_OUTPUT}"
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@26f96dfa697d77e81fd5907df203aa23a56210a8 # v4.3.0
+        with:
+          name: latex-build
+          path: ${{ steps.build.outputs.file_name }}.*
+          retention-days: 1

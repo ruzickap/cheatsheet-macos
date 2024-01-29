@@ -1,0 +1,55 @@
+---
+name: release-please
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+env:
+  LATEX_OUTPUT_FILE_TYPES: "jpg pdf png svg"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: google-github-actions/release-please-action@cc61a07e2da466bebbc19b3a7dd01d6aecb20d1e # v4.0.2
+        id: release
+        with:
+          release-type: simple
+
+  latex-build:
+    needs: [release-please]
+    if: needs.release-please.outputs.release_created
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          submodules: true
+
+      - name: Use TeXLive to build document
+        uses: xu-cheng/texlive-action@d9f893f837a29f066e3c70080540976b47263721 # v2
+        with:
+          run: |
+            set -euxo pipefail
+
+            apk add poppler-utils
+            make ${{ env.LATEX_OUTPUT_FILE_TYPES }} mostlyclean
+
+      - name: Upload Release Artifact
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euxo pipefail
+
+          FILE_NAME=$(find ./*.tex | sed 's@^\./\(.*\)\.tex@\1@')
+          gh release upload ${{ needs.release-please.outputs.tag_name }} "${FILE_NAME}".*
