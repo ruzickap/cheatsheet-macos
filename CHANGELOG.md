@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0](https://github.com/ruzickap/cheatsheet-macos/compare/v0.1.2...v0.2.0) (2024-01-30)
+
+
+### Features
+
+* **gh-actions:** add lint-pr-title ([#49](https://github.com/ruzickap/cheatsheet-macos/issues/49)) ([40d6a07](https://github.com/ruzickap/cheatsheet-macos/commit/40d6a07e7277942d6fce1e7fa72c5a333fab8dce))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#54](https://github.com/ruzickap/cheatsheet-macos/issues/54)) ([8f8a06d](https://github.com/ruzickap/cheatsheet-macos/commit/8f8a06daba9a8c94877e2cd55a879faff27acb60))
+
 ## [v0.1.2](https://github.com/ruzickap/cheatsheet-macos/compare/v0.1.1...v0.1.2) (2021-12-03)
 
 - Move from master to main [`#43`](https://github.com/ruzickap/cheatsheet-macos/pull/43)
