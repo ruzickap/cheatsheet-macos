@@ -2,7 +2,7 @@
 #
 # MIT License
 #
-# Copyright (c) 2018-2019 Takahiro Ueda
+# Copyright (c) 2018-2024 Takahiro Ueda
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,8 @@
 
 # latest-raw-url: https://raw.githubusercontent.com/tueda/makefile4latex/master/.gitignore
 
-# Based on https://raw.github.com/github/gitignore/7aec8fdf3287f253ddfd91b9fa18199f415eb87e/TeX.gitignore
+# Based on https://raw.githubusercontent.com/github/gitignore/362abacebe59448407e47a014e09288d8cddb7a7/TeX.gitignore
+# (2021-12-11, CC0-1.0).
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
@@ -46,9 +47,10 @@
 *.xdv
 *-converted-to.*
 # these rules might exclude image files for figures etc.
-# *.ps
+# makefile4latex: ignore *.ps *.pdf
+*.ps
 # *.eps
-# *.pdf
+*.pdf
 
 ## Generated if empty string is given at "Please type another file name for output:"
 .pdf
@@ -138,15 +140,26 @@ acs-*.bib
 *.glo
 *.gls
 *.glsdefs
+*.lzo
+*.lzs
+*.slg
+*.slo
+*.sls
 
 # uncomment this for glossaries-extra (will ignore makeindex's style files!)
-# *.ist
+# makefile4latex: ignore *.ist
+*.ist
+
+# gnuplot
+*.gnuplot
+*.table
 
 # gnuplottex
 *-gnuplottex-*
 
 # gregoriotex
 *.gaux
+*.glog
 *.gtex
 
 # htlatex
@@ -162,7 +175,8 @@ acs-*.bib
 
 # knitr
 *-concordance.tex
-# TODO Comment the next line if you want to keep your tikz graphics files
+# TODO Uncomment the next line if you use knitr and want to ignore its generated tikz files
+# makefile4latex: ignore *.tikz
 *.tikz
 *-tikzDictionary
 
@@ -193,6 +207,9 @@ _minted*
 # morewrites
 *.mw
 
+# newpax
+*.newpax
+
 # nomencl
 *.nlg
 *.nlo
@@ -211,6 +228,9 @@ _minted*
 
 # scrwfile
 *.wrt
+
+# svg
+svg-inkscape/
 
 # sympy
 *.sout
@@ -235,6 +255,9 @@ pythontex-files-*/
 *.dpth
 *.md5
 *.auxlock
+
+# titletoc
+*.ptc
 
 # todonotes
 *.tdo
@@ -280,8 +303,14 @@ TSWLatexianTemp*
 # Kile
 *.backup
 
+# gummi
+.*.swp
+
 # KBibTeX
 *~[0-9]*
+
+# TeXnicCenter
+*.tps
 
 # auto folder when using emacs and auctex
 ./auto/*
@@ -293,45 +322,66 @@ TSWLatexianTemp*
 # standalone packages
 *.sta
 
+# Makeindex log files
+*.lpz
+
+# xwatermark package
+*.xwm
+
+# REVTeX puts footnotes in the bibliography by default, unless the nofootinbib
+# option is specified. Footnotes are the stored in a file with suffix Notes.bib.
+# Uncomment the next line to have this generated file ignored.
+# makefile4latex: ignore *Notes.bib
+*Notes.bib
 ########
+# makefile4latex additional rules
 
 # axodraw2
 *.ax1
 *.ax2
 
-# makeindex's style files.
-*.ist
+# bib2gls
+*.glstex
 
-# revtex
-*Notes.bib
+# sortref
+*_ref.tex
 
-## convbkmk intermediate files.
+# convbkmk intermediate files.
 *-convbkmk.ps
 
-## dviout caches.
+# dviout caches.
 *.bmc
 *.pbm
 
-## Bounding boxes for dvipdfm/dvipdfmx.
+# Bounding boxes for dvipdfm/dvipdfmx.
 *.bb
 *.xbb
 
-## Output files. (These might exclude image files for figures etc.)
-*.pdf
-*.ps
+# latexindent
+*.bak[0-9]*
+
+# textlint
+.textlintcache
+node_modules
+package-lock.json
+yarn.lock
+
+# arXiv tarballs.
 *.tar.gz
 
-## Temporary files.
+# Temporary files.
 *.tmp
 *.tmp*.*
 *_tmp.???
 
-## Directories created by the Makefile for LaTeX.
+# Directories created by the Makefile for LaTeX.
 .dep/
 .diff/
 
-# pre-commit configuration file
-.pre-commit-config.yaml
+# cache directories.
+.cache
+_cache
+cache
 
-# release-it configuration file
-.release-it.yml
+# pre-commit config file
+.pre-commit-config.yaml
