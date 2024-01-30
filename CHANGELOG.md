@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/ruzickap/cheatsheet-macos/compare/v0.2.0...v0.2.1) (2024-01-30)
+
+
+### Bug Fixes
+
+* **gha:** use script in release + README update ([#57](https://github.com/ruzickap/cheatsheet-macos/issues/57)) ([54b3a50](https://github.com/ruzickap/cheatsheet-macos/commit/54b3a50c8819b2d4facb0dcc07c2aef2979c7282))
+
 ## [0.2.0](https://github.com/ruzickap/cheatsheet-macos/compare/v0.1.2...v0.2.0) (2024-01-30)
 
 
