@@ -1,0 +1,71 @@
+{
+  // keep-sorted start block=yes newline_separated=yes
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // keep-sorted start case=no
+        "bierner.markdown-preview-github-styles",
+        "DavidAnson.vscode-markdownlint",
+        "esbenp.prettier-vscode",
+        "GitHub.copilot",
+        "James-Yu.latex-workshop",
+        "me-dutour-mathieu.vscode-github-actions",
+        "timonwong.shellcheck",
+        "Tyriar.sort-lines",
+        "yzhang.markdown-all-in-one"
+        // keep-sorted end
+      ],
+      "settings": {
+        // keep-sorted start block=yes
+        "[json][markdown][yaml]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[markdown]": {
+          "editor.wordWrap": "off"
+        },
+        "editor.autoClosingQuotes": "never",
+        "editor.cursorBlinking": "smooth",
+        "editor.dragAndDrop": false,
+        "editor.hover.enabled": false,
+        "editor.parameterHints.enabled": false,
+        "editor.quickSuggestions": {
+          "other": "off"
+        },
+        "editor.rulers": [80],
+        "editor.smoothScrolling": true,
+        "editor.tabSize": 2,
+        "extensions.ignoreRecommendations": true,
+        "files.insertFinalNewline": true,
+        "files.trimFinalNewlines": true,
+        "files.trimTrailingWhitespace": true,
+        "git.autofetch": true,
+        "github.copilot.enable": {
+          "*": true,
+          "plaintext": true,
+          "markdown": true
+        },
+        "latex-workshop.docker.enabled": true,
+        "latex-workshop.docker.image.latex": "ghcr.io/xu-cheng/texlive-full",
+        "latex-workshop.latex.outDir": "./out"
+        // keep-sorted end
+      }
+    }
+  },
+
+  "features": {
+    // https://github.com/devcontainers/features/tree/main/src/docker-in-docker
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  "hostRequirements": {
+    "cpus": 4
+  },
+
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "name": "texlive",
+
+  "postCreateCommand": "docker pull ghcr.io/xu-cheng/texlive-full"
+  // keep-sorted end
+}
