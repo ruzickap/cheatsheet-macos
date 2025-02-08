@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/ruzickap/cheatsheet-macos/compare/v0.2.1...v0.3.0) (2025-02-08)
+
+
+### Features
+
+* add devcontainer + gha updates ([#71](https://github.com/ruzickap/cheatsheet-macos/issues/71)) ([4efee96](https://github.com/ruzickap/cheatsheet-macos/commit/4efee964f0a2024f0b91fb0e0cf4c209a6199e79))
+* add GitHub default templates ([#66](https://github.com/ruzickap/cheatsheet-macos/issues/66)) ([c253d22](https://github.com/ruzickap/cheatsheet-macos/commit/c253d2261d5b88e671545b3d7760f0e03d33acdb))
+* **gh:** add default GitHub repo files ([#59](https://github.com/ruzickap/cheatsheet-macos/issues/59)) ([ade67f3](https://github.com/ruzickap/cheatsheet-macos/commit/ade67f3cf8556971bd8f70092060885e7b34f45b))
+* **gh:** add default GitHub repo files ([#61](https://github.com/ruzickap/cheatsheet-macos/issues/61)) ([8183250](https://github.com/ruzickap/cheatsheet-macos/commit/8183250eafb7880a14b3bcec85841d3fe2b95465))
+* **gh:** add default GitHub repo files ([#62](https://github.com/ruzickap/cheatsheet-macos/issues/62)) ([5bc030b](https://github.com/ruzickap/cheatsheet-macos/commit/5bc030bb54f794b13344739940d186fe029cfe0a))
+* **gh:** add default github repo files ([#69](https://github.com/ruzickap/cheatsheet-macos/issues/69)) ([f8bfb8f](https://github.com/ruzickap/cheatsheet-macos/commit/f8bfb8f889f065eb60d0f076cf7f29cec9c91378))
+
 ## [0.2.1](https://github.com/ruzickap/cheatsheet-macos/compare/v0.2.0...v0.2.1) (2024-01-30)
 
 
