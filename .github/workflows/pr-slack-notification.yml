@@ -24,7 +24,7 @@ defaults:
     shell: bash -euxo pipefail {0}
 
 jobs:
-  debug:
+  github-context:
     runs-on: ubuntu-latest
     steps:
       - name: Debug
@@ -49,8 +49,10 @@ jobs:
             text: "💡 *${{ github.event.pull_request.user.login }}*: <${{ github.event.repository.html_url }}|${{ github.repository }}> - <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}> (+${{ github.event.pull_request.additions }}, -${{ github.event.pull_request.deletions }})"
 
       - name: Create file with slack message timestamp
+        env:
+          TS: ${{ steps.message.outputs.ts }}
         run: |
-          echo "${{ steps.message.outputs.ts }}" > slack-message-timestamp.txt
+          echo "${TS}" > slack-message-timestamp.txt
 
       - name: Cache slack message timestamp
         uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
@@ -73,8 +75,9 @@ jobs:
         id: slack-timestamp
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_PULL_REQUEST_HTML_URL: ${{ github.event.pull_request.html_url || github.event.issue.pull_request.html_url }}
         run: |
-          SLACK_TIMESTAMP=$(gh cache list --json key --jq '.[].key|capture("${{ github.event.pull_request.html_url || github.event.issue.pull_request.html_url }}-(?<x>.+)").x')
+          SLACK_TIMESTAMP=$(gh cache list --json key --jq "[.[].key|capture(\"${GITHUB_PULL_REQUEST_HTML_URL}-(?<x>.+)\").x][0]")
           echo "SLACK_TIMESTAMP=${SLACK_TIMESTAMP}" | tee -a "${GITHUB_ENV}"
           if [[ "${SLACK_TIMESTAMP}" != '' ]]; then
             echo "github_event_pull_request_html_url=true" >> "${GITHUB_OUTPUT}"
@@ -82,15 +85,19 @@ jobs:
 
       - name: Decide which emoji to add
         if: ${{ steps.slack-timestamp.outputs.github_event_pull_request_html_url == 'true' }}
+        env:
+          GITHUB_EVENT_ACTION: ${{ github.event.action }}
+          GITHUB_EVENT_NAME: ${{ github.event_name }}
+          GITHUB_EVENT_REVIEW_STATE: ${{ github.event.review.state }}
         run: |
-          case "${{ github.event.action }}" in
+          case "${GITHUB_EVENT_ACTION}" in
             created)
-              if [[ "${{ github.event_name }}" == 'issue_comment' ]]; then
+              if [[ "${GITHUB_EVENT_NAME}" == 'issue_comment' ]]; then
                 echo "EMOJI=speech_balloon" >> "${GITHUB_ENV}" # 💬
               fi
               ;;
             submitted)
-              case "${{ github.event.review.state }}" in
+              case "${GITHUB_EVENT_REVIEW_STATE}" in
                 changes_requested)
                   echo "EMOJI=repeat" >> "${GITHUB_ENV}" # 🔁
                   ;;
@@ -121,7 +128,7 @@ jobs:
             timestamp: "${{ env.SLACK_TIMESTAMP }}"
             name: ${{ env.EMOJI }}
 
-      - name: Update the original message with success
+      - name: Update the original message with status Merged ✅
         if: ${{ github.event.pull_request.merged && steps.slack-timestamp.outputs.github_event_pull_request_html_url == 'true' }}
         uses: slackapi/slack-github-action@485a9d42d3a73031f12ec201c457e2162c45d02d # v2.0.0
         with:
@@ -137,3 +144,20 @@ jobs:
                   - title: "Status"
                     short: true
                     value: "Merged ✅"
+
+      - name: Update the original message with status Closed ❎
+        if: ${{ github.event.action == 'closed' && github.event.pull_request.merged == false && steps.slack-timestamp.outputs.github_event_pull_request_html_url == 'true' }}
+        uses: slackapi/slack-github-action@485a9d42d3a73031f12ec201c457e2162c45d02d # v2.0.0
+        with:
+          method: chat.update
+          token: ${{ secrets.MY_SLACK_BOT_TOKEN }}
+          payload: |
+            channel: ${{ secrets.MY_SLACK_CHANNEL_ID }}
+            ts: "${{ env.SLACK_TIMESTAMP }}"
+            text: "❎ *${{ github.event.pull_request.user.login }}*: <${{ github.event.repository.html_url }}|${{ github.repository }}> - <${{ github.event.pull_request.html_url }}|#${{ github.event.pull_request.number }} - ${{ github.event.pull_request.title }}> (+${{ github.event.pull_request.additions }}, -${{ github.event.pull_request.deletions }})"
+            attachments:
+              - color: "fa7015"
+                fields:
+                  - title: "Status"
+                    short: true
+                    value: "Closed ❎"
