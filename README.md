@@ -27,6 +27,6 @@ formats (like PNG, JPG, SVG), on the
 To download:
 
 1. Go to the [Releases page](https://github.com/ruzickap/cheatsheet-macos/releases)
-2. Locate the latest release (usually at the top)
-3. Expand the "Assets" section for that release
-4. Download `macos_cheatsheet.pdf` or any other desired format
+1. Locate the latest release (usually at the top)
+1. Expand the "Assets" section for that release
+1. Download `macos_cheatsheet.pdf` or any other desired format
