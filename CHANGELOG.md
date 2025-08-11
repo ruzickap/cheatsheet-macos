@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.4.0](https://github.com/ruzickap/cheatsheet-macos/compare/v0.3.0...v0.4.0) (2025-08-11)
+
+
+### Features
+
+* add default github repo files ([#77](https://github.com/ruzickap/cheatsheet-macos/issues/77)) ([dc09220](https://github.com/ruzickap/cheatsheet-macos/commit/dc09220048c259dd658c95ca1575836427c9f888))
+* add/update default repository files ([#80](https://github.com/ruzickap/cheatsheet-macos/issues/80)) ([8b10ef1](https://github.com/ruzickap/cheatsheet-macos/commit/8b10ef183fa27dbce64bf6be24cd8cb7d2f1a819))
+* add/update default repository files ([#81](https://github.com/ruzickap/cheatsheet-macos/issues/81)) ([aaaf22e](https://github.com/ruzickap/cheatsheet-macos/commit/aaaf22eba7365ae748bb4ff5553cdb9cf75b7494))
+* **gh:** add default github repo files ([#74](https://github.com/ruzickap/cheatsheet-macos/issues/74)) ([8d590f8](https://github.com/ruzickap/cheatsheet-macos/commit/8d590f8368f244ce69053ba6cb2bfcba7bd27ed5))
+
 ## [0.3.0](https://github.com/ruzickap/cheatsheet-macos/compare/v0.2.1...v0.3.0) (2025-02-08)
 
 
