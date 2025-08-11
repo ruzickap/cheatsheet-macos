@@ -1,4 +1,7 @@
 ---
+# GitHub Actions workflow for LaTeX document building
+# Compiles LaTeX documents and uploads build artifacts
+# https://github.com/latex3/latex2e
 name: latex-build
 
 on:
