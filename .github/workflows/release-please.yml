@@ -1,4 +1,7 @@
 ---
+# GitHub Actions workflow for Release Please automation with LaTeX document building
+# Automatically creates releases and builds LaTeX documents for release artifacts
+# https://github.com/googleapis/release-please
 name: release-please
 
 on:
