@@ -20,30 +20,30 @@ NC='\033[0m' # No Color
 
 # Function to print colored output
 print_info() {
-  echo -e "${BLUE}[INFO]${NC} $1"
+  echo -e "${BLUE}[INFO]${NC} ${1}"
 }
 
 print_success() {
-  echo -e "${GREEN}[SUCCESS]${NC} $1"
+  echo -e "${GREEN}[SUCCESS]${NC} ${1}"
 }
 
 print_warning() {
-  echo -e "${YELLOW}[WARNING]${NC} $1"
+  echo -e "${YELLOW}[WARNING]${NC} ${1}"
 }
 
 print_error() {
-  echo -e "${RED}[ERROR]${NC} $1" >&2
+  echo -e "${RED}[ERROR]${NC} ${1}" >&2
 }
 
 # Function to check if command exists
 command_exists() {
-  command -v "$1" > /dev/null 2>&1
+  command -v "${1}" > /dev/null 2>&1
 }
 
 # Function to show usage
 show_usage() {
   cat << EOF
-Usage: $0 [OPTIONS] [MAKE_TARGETS...]
+Usage: ${0} [OPTIONS] [MAKE_TARGETS...]
 
 This script builds LaTeX documents using Docker with TeXLive Full.
 
@@ -57,24 +57,24 @@ ENVIRONMENT VARIABLES:
     LATEX_MAKE_TARGETS     Make targets to run (default: ${MAKE_TARGETS})
 
 EXAMPLES:
-    $0                            # Build with default targets
-    $0 pdf                        # Build only PDF
-    $0 -i custom/texlive pdf png  # Use custom image and specific targets
-    $0 --verbose pdf              # Build PDF with verbose output
+    ${0}                            # Build with default targets
+    ${0} pdf                        # Build only PDF
+    ${0} -i custom/texlive pdf png  # Use custom image and specific targets
+    ${0} --verbose pdf              # Build PDF with verbose output
 
 EOF
 }
 
 # Parse command line arguments
 VERBOSE=false
-while [[ $# -gt 0 ]]; do
-  case $1 in
+while [[ ${#} -gt 0 ]]; do
+  case ${1} in
     -h | --help)
       show_usage
       exit 0
       ;;
     -i | --image)
-      DOCKER_IMAGE="$2"
+      DOCKER_IMAGE="${2}"
       shift 2
       ;;
     -v | --verbose)
@@ -82,20 +82,20 @@ while [[ $# -gt 0 ]]; do
       shift
       ;;
     -*)
-      print_error "Unknown option: $1"
+      print_error "Unknown option: ${1}"
       show_usage
       exit 1
       ;;
     *)
       # Remaining arguments are make targets
-      MAKE_TARGETS="$*"
+      MAKE_TARGETS="${*}"
       break
       ;;
   esac
 done
 
 # Enable verbose mode if requested
-if [[ "$VERBOSE" == "true" ]]; then
+if [[ "${VERBOSE}" == "true" ]]; then
   set -x
 fi
 
