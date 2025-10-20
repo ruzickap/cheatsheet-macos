@@ -17,6 +17,7 @@ permissions: read-all
 
 jobs:
   latex-build:
+    # ghcr.io/xu-cheng/texlive-full doesn't support arm64
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
