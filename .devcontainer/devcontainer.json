@@ -6,11 +6,11 @@
       "extensions": [
         // keep-sorted start case=no
         "bierner.markdown-preview-github-styles",
-        "DavidAnson.vscode-markdownlint",
         "esbenp.prettier-vscode",
         "GitHub.copilot",
         "James-Yu.latex-workshop",
         "me-dutour-mathieu.vscode-github-actions",
+        "rvben.rumdl",
         "timonwong.shellcheck",
         "Tyriar.sort-lines",
         "yzhang.markdown-all-in-one"
