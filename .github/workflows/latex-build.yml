@@ -19,6 +19,7 @@ jobs:
   latex-build:
     # ghcr.io/xu-cheng/texlive-full doesn't support arm64
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout Code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -31,7 +32,7 @@ jobs:
           echo "file_name=${FILE_NAME}" >> "${GITHUB_OUTPUT}"
 
       - name: Upload artifact
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
         with:
           name: latex-build
           path: ${{ steps.build.outputs.file_name }}.*
