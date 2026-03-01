@@ -20,13 +20,13 @@ a Docker-based build pipeline using `makefile4latex`.
 ./run.sh --verbose pdf
 
 # Direct make targets (requires local TeXLive installation)
-make pdf                  # Build PDF
-make jpg png svg          # Build image formats
-make mostlyclean          # Remove intermediate files only
-make clean                # Remove all generated files
-make pretty               # Format LaTeX with latexindent
-make lint                 # Lint LaTeX with chktex
-make help                 # Show all available targets
+make pdf         # Build PDF
+make jpg png svg # Build image formats
+make mostlyclean # Remove intermediate files only
+make clean       # Remove all generated files
+make pretty      # Format LaTeX with latexindent
+make lint        # Lint LaTeX with chktex
+make help        # Show all available targets
 ```
 
 ## Lint and Validation Commands
@@ -49,8 +49,8 @@ lychee --config lychee.toml .
 jsonlint --comments .github/renovate.json5
 
 # LaTeX linting and formatting (via Makefile)
-make lint                 # Runs chktex
-make pretty               # Runs latexindent
+make lint   # Runs chktex
+make pretty # Runs latexindent
 
 # Makefile linting
 checkmake Makefile
