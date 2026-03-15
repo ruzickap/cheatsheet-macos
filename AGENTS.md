@@ -67,7 +67,7 @@ trivy fs --severity HIGH,CRITICAL --ignore-unfixed .
 
 ### Markdown
 
-- Wrap lines at 72 characters for readability
+- Wrap lines at 80 characters for readability
 - Use proper heading hierarchy (no skipped levels)
 - Include language identifiers in code fences (`bash`, `json`)
 - Prefer code fences over inline code for multi-line examples
