@@ -166,7 +166,6 @@ Use lowercase, hyphens, no consecutive/leading/trailing hyphens.
 - Checkov: skip `CKV_GHA_7` (workflow_dispatch inputs)
 - DevSkim: ignore DS162092 (debug code), DS137138 (insecure URL);
   exclude `CHANGELOG.md`
-- KICS: fail only on HIGH severity
 - Trivy: HIGH/CRITICAL only, ignore unfixed vulnerabilities
 
 ## Link Checking

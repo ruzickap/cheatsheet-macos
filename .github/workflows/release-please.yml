@@ -10,13 +10,14 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-  issues: write
-  pull-requests: write
+permissions: {}
 
 jobs:
   release-please:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
     runs-on: ubuntu-24.04-arm
     timeout-minutes: 5
     outputs:
@@ -29,6 +30,8 @@ jobs:
           release-type: simple
 
   latex-build:
+    permissions:
+      contents: write
     needs: [release-please]
     if: ${{ needs.release-please.outputs.release_created }}
     runs-on: ubuntu-latest
@@ -37,6 +40,7 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
+          persist-credentials: false
           submodules: true
 
       - name: Run script to build document
@@ -49,6 +53,8 @@ jobs:
       - name: Upload Release Artifact
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NAME: ${{ needs.release-please.outputs.tag_name }}
+          FILE_NAME: ${{ steps.build.outputs.file_name }}
         run: |
           set -euxo pipefail
-          gh release upload ${{ needs.release-please.outputs.tag_name }} ${{ steps.build.outputs.file_name }}.*
+          gh release upload "${TAG_NAME}" "${FILE_NAME}".*
