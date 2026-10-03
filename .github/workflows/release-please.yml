@@ -18,7 +18,7 @@ jobs:
       contents: write
       issues: write
       pull-requests: write
-    runs-on: ubuntu-24.04-arm
+    runs-on: ubuntu-26.04-arm
     timeout-minutes: 5
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
