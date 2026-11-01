@@ -1,0 +1,6 @@
+{
+  "threshold": 0,
+  "reporters": ["console"],
+  "ignore": ["**/.git/**", "**/.github/**", "**/CHANGELOG.md", "**/Makefile"],
+  "absolute": true
+}
