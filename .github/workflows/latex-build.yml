@@ -12,6 +12,9 @@ on:
     paths:
       - "**.tex"
       - .github/workflows/latex-build.yml
+      - .latex.mk
+      - Makefile
+      - run.sh
 
 permissions: {}
 
